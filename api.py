@@ -110,8 +110,8 @@ async def query_pdf_endpoint(pdf_file: UploadFile, query_text: str = Form(...)):
         response = pdf_query.query_pdf(pdf_file, query_text)
         return JSONResponse(content={
             "response": response.text,
-            "input_tokens": response.input_tokens,
-            "output_tokens": response.output_tokens
+            # "input_tokens": response.input_tokens,
+            # "output_tokens": response.output_tokens
         })
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
